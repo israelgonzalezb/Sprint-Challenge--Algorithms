@@ -92,12 +92,55 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+    def right_shuffle(self):
+        
+        self.set_light_off()
+        while self.can_move_right():
+            self.move_right()
+            if self.compare_item() == 1:
+                self.set_light_on()
+                self.swap_item()
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+                self.swap_item()
+            elif self.compare_item() == -1:
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+                self.swap_item()
+        if self.can_move_right() == False and self.light_is_on():
+            self.left_shuffle()
+
+    def left_shuffle(self):
+        self.set_light_off()
+        while self.can_move_left():
+            self.move_left()
+            if self.compare_item() == -1:
+                self.set_light_on()
+                self.swap_item()
+                self.move_right()
+                self.swap_item()
+                self.move_left()
+                self.swap_item()
+            elif self.compare_item() == 1:
+                self.move_right()
+                self.swap_item()
+                self.move_left()
+                self.swap_item()
+        if self.can_move_left() == False and self.light_is_on():
+            self.right_shuffle()
+
     def sort(self):
         """
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        
+        self.set_light_on()
+        self.swap_item()
+        self.right_shuffle()
+        self.swap_item()
 
 
 if __name__ == "__main__":
