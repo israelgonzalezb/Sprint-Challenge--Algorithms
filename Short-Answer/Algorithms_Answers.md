@@ -2,13 +2,13 @@
 
 ## Exercise I
 
-a)
+a) O(log n^3)
 
 
-b)
+b) O(n^2)
 
 
-c)
+c) O(n-1)
 
 ## Exercise II
 

@@ -18,7 +18,7 @@ b)  sum = 0
       j = 1
       while j < n:
         j *= 2
-        sum += 1
+        sum += 1 
 ```
 
 ```
